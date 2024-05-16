@@ -20,24 +20,6 @@ var validExtensions = []string{
 	".otf",
 }
 
-var fontDirs = []string{
-	"~/.fonts",
-	"~/.local/share/fonts",
-	"/usr/local/share/fonts",
-	"/usr/share/fonts",
-	filepath.Join(os.Getenv("XDG_DATA_HOME"), "fonts"),
-}
-
-func init() {
-	dataDirs := strings.Split(os.Getenv("XDG_DATA_DIRS"), string(os.PathListSeparator))
-	for _, dir := range dataDirs {
-		if dir == "" {
-			continue
-		}
-		fontDirs = append(fontDirs, filepath.Join(dir, "fonts"))
-	}
-}
-
 // Match finds all fonts installed on the system which match the provided matchers
 func Match(matchers ...matcher) ([]Font, error) {
 
@@ -49,7 +31,7 @@ func Match(matchers ...matcher) ([]Font, error) {
 		home = usr.HomeDir
 	}
 
-	for _, dir := range fontDirs {
+	for _, dir := range getFontDirectories() {
 
 		if home != "" && strings.HasPrefix(dir, "~/") {
 			dir = filepath.Join(home, dir[2:])
