@@ -1,3 +1,3 @@
-module github.com/liamg/fontinfo
+module github.com/unstablebuild/fontinfo
 
 go 1.16

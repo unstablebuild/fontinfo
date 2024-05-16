@@ -1,7 +1,7 @@
 # FontInfo
 
-[![Go Reference](https://pkg.go.dev/badge/github.com/liamg/fontinfo.svg)](https://pkg.go.dev/github.com/liamg/fontinfo)
-[![GoReportCard](https://goreportcard.com/badge/github.com/liamg/fontinfo)](https://goreportcard.com/report/github.com/liamg/fontinfo)
+[![Go Reference](https://pkg.go.dev/badge/github.com/unstablebuild/fontinfo.svg)](https://pkg.go.dev/github.com/unstablebuild/fontinfo)
+[![GoReportCard](https://goreportcard.com/badge/github.com/unstablebuild/fontinfo)](https://goreportcard.com/report/github.com/unstablebuild/fontinfo)
 
 FontInfo is a Go package to list available fonts on a Linux system.
 
@@ -21,7 +21,7 @@ package main
 import (
 	"fmt"
 
-	"github.com/liamg/fontinfo"
+	"github.com/unstablebuild/fontinfo"
 )
 
 func main() {
