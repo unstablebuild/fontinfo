@@ -3,7 +3,7 @@
 [![Go Reference](https://pkg.go.dev/badge/github.com/liamg/fontinfo.svg)](https://pkg.go.dev/github.com/liamg/fontinfo)
 [![GoReportCard](https://goreportcard.com/badge/github.com/liamg/fontinfo)](https://goreportcard.com/report/github.com/liamg/fontinfo)
 
-FontInfo is a Go package to list available fonts on a Linux system.
+FontInfo is a Go package to list available fonts on a Linux, MacOS or Windows system.
 
 - No CGO required
 - Doesn't wrap `fontconfig` or other utilities
