@@ -14,6 +14,6 @@ func main() {
 	}
 
 	for _, font := range fonts {
-		fmt.Printf("Family=%s Style=%s Path=%s\n", font.Family, font.Style, font.Path)
+		fmt.Printf("Family=%s Path=%s\n", font.Family, font.Path)
 	}
 }

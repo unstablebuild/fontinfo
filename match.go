@@ -11,12 +11,12 @@ import (
 // Font represents a font file on disk
 type Font struct {
 	Family string
-	Style  string
 	Path   string
 }
 
 var validExtensions = []string{
 	".ttf",
+	".ttc",
 	".otf",
 }
 
@@ -55,16 +55,19 @@ func Match(matchers ...matcher) ([]Font, error) {
 						return err
 					}
 					defer f.Close()
-					metadata, err := readMetadata(f)
+					m, err := readMetadata(f)
 					if err != nil {
 						continue
 					}
-					for _, match := range matchers {
-						if !match(metadata) {
-							return nil
+				outer:
+					for _, metadata := range m {
+						for _, match := range matchers {
+							if !match(&metadata) {
+								continue outer
+							}
 						}
+						meta[path] = &metadata
 					}
-					meta[path] = metadata
 					return nil
 				}
 			}
@@ -77,7 +80,6 @@ func Match(matchers ...matcher) ([]Font, error) {
 	for path, metadata := range meta {
 		fonts = append(fonts, Font{
 			Family: metadata.FontFamily,
-			Style:  metadata.FontStyle,
 			Path:   path,
 		})
 	}
